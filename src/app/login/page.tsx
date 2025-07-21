@@ -28,12 +28,22 @@ export default function LoginPage() {
       setLoading(true)
      const response = await axios.post("/api/users/login", user)
       console.log("Login successful!",response.data);
-      toast.success("Login successful!");
+      toast.success("Login successful!", {
+        style: {
+          border: "2px solid #41eb53",
+        },
+        duration: 4000,
+      });
       router.push("/profile")
       
     } catch (error: any) {
       console.log("Login failed!", error.message);
-      toast.error(error.message)
+      toast.error("Login failed!", {
+        style: {
+          border: "2px solid #e92237",
+        },
+        duration: 3000,
+      });
     }finally {
       setLoading(false)
     }
@@ -51,11 +61,11 @@ export default function LoginPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1 className="text-3xl">{loading? "processing" : "Login"}</h1>
+      <h1 className="text-3xl">{loading ? "processing" : "Login"}</h1>
       <hr />
       <label htmlFor="email"> email:</label>
       <input
-        className="p-1 bg-white text-gray-900 border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-600"
+        className="p-1 bg-white text-gray-900 border-2 rounded-lg mb-4 focus:outline-none focus:border-blue-400"
         id="email"
         type="text"
         value={user.email}
@@ -65,7 +75,7 @@ export default function LoginPage() {
 
       <label htmlFor="password"> password:</label>
       <input
-        className="p-1 bg-white text-gray-900 border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-600"
+        className="p-1 bg-white text-gray-900 border-2  rounded-lg mb-4 focus:outline-none focus:border-blue-400"
         id="password"
         type="password"
         value={user.password}
@@ -74,8 +84,18 @@ export default function LoginPage() {
       />
       <button
         onClick={onLogin}
-        className="p-2 border bg-transparent border-gray-400 rounded-lg mb-4 focus:outline-none text-white hover:text-black focus:border-blue-600 hover:bg-blue-300"
+        className=" px-5 py-2.5 flex hover:space-x-large  text-center items-center justify-center font-bold uppercase border bg-transparent rounded-lg mb-4 focus:outline-none text-purple-700 hover:text-white border-purple-700 hover:bg-purple-700 hover:shadow-2xl hover:shadow-purple-700 transition-all focus:opacity-[0.85] active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none focus:ring-1 focus:ring-purple-600"
       >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          className="bi bi-arrow-right-square-fill"
+          viewBox="3 0 16 16"
+        >
+          <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
+        </svg>
         {buttonDisabled ? "No Login" : "Login"}
       </button>
       <Link href="/signup">Visit Signup Page</Link>
