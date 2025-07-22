@@ -2,6 +2,8 @@ import { connect } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
+import { sendMail } from "@/helpers/mailer";
+
 
 export async function POST(request: NextRequest) {
   try {
@@ -10,7 +12,6 @@ export async function POST(request: NextRequest) {
     // Ensure database connection
     await connect();
     console.log("Database connection established!");
-    
 
     // Parse request body
     const reqBody = await request.json();
@@ -25,7 +26,7 @@ export async function POST(request: NextRequest) {
     // Validate required fields
     if (!username || !email || !password) {
       console.log("Validation failed: Missing required fields");
-      
+
       return NextResponse.json(
         { error: "All fields are required" },
         { status: 400 }
@@ -58,6 +59,10 @@ export async function POST(request: NextRequest) {
 
     const savedUser = await newUser.save();
     console.log("User saved successfully:", savedUser._id);
+
+    // send verification mail
+    await sendMail({ email, emailType: "VERIFY", 
+    userId: savedUser._id });
 
     // Remove password from response
     const { password: _, ...userResponse } = savedUser.toObject();

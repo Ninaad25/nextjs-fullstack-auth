@@ -32,7 +32,7 @@ export default function ProfilePage() {
       <h1 className=" mb-2">Profile </h1>
       <hr />
       <p className=" mb-2">Profile page</p>
-      <h2 className="p-1 mb-2 w-20 text-center shadow-2xl hover:shadow-purple-700 hover:shadow-2xl rounded bg-purple-500 text-black hover:text-white hover:bg-purple-700">
+      <h2 className="p-1 mb-2 w-auto text-center shadow-2xl hover:shadow-purple-700 hover:shadow-2xl rounded bg-purple-500 text-black hover:text-white hover:bg-purple-700">
         {data === "nothing" ? (
           "Nothing"
         ) : (
@@ -65,7 +65,7 @@ export default function ProfilePage() {
       </button>
       <button
         onClick={getUserDetails}
-        className="w-40 h-12 m-4 text-violet-500 hover:text-white bg-transparent cursor-pointer rounded-lg border-2 border-[#9748FF] shadow-[inset_0px_-2px_0px_1px_#9748FF] group hover:bg-[#9748FF] transition duration-300 ease-in-out"
+        className="w-40 h-12 m-4 text-violet-500 hover:text-white bg-transparent cursor-pointer rounded-lg border-2 border-[#9748FF] shadow-[inset_0px_-2px_0px_1px_#9748FF] group hover:bg-[#9748FF] transition duration-300 ease-in-out "
       >
         <span className="font-medium text-[#333] group-hover:text-white" />
         Get User Details
