@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Starfield from "react-starfield";
 import React from "react";
 import Link from "next/link";
@@ -18,7 +17,7 @@ export default function Home() {
           NextJS Fullstack Auth
         </h1>
         <p className="text-lg text-gray-300 text-center max-w-2xl first-letter:text-5xl first-letter:font-bold first-letter:text-gray-900 dark:first-letter:text-gray-100 first-letter:me-3 first-letter:float-start">
-          This application leverages a monolithic 'Next.js' architecture with
+          This application leverages a monolithic Next.js architecture with
           integrated frontend and backend components to deliver secure and
           streamlined user experiences. Core authentication features include{" "}
           <strong className="font-semibold text-gray-900 dark:text-purple-500">
