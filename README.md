@@ -1,4 +1,17 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Fullstack Authentication App
+
+This is a fullstack Next.js authentication application with user registration, login, password reset, and email verification features.
+
+## Live Demo
+🌐 **Live App**: https://auth-nextjs-ourtube-ninaad-mhadalkars-projects.vercel.app
+
+## Features
+- User Registration & Login
+- Email Verification
+- Password Reset via Email
+- Protected Routes
+- MongoDB Database Integration
+- Responsive UI with Starfield Background
 
 ## Getting Started
 
@@ -29,8 +42,18 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This app is deployed on Vercel with automatic deployments enabled. Any changes pushed to the `main` branch will automatically trigger a new deployment.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Manual Deployment
+If needed, you can also deploy manually:
+```bash
+npx vercel --prod
+```
+
+## Environment Variables
+Make sure to set up the following environment variables in Vercel:
+- `MONGO_URI`: MongoDB connection string
+- `TOKEN_SECRET`: JWT token secret
+- `DOMAIN`: Your domain URL
