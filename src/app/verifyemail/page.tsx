@@ -1,26 +1,25 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
-import { setServers } from "dns";
+import { Toaster } from "react-hot-toast";
 import Starfield from "react-starfield";
 
-export default function verifyEmialPage() {
+export default function VerifyEmailPage() {
     const [token, setToken] = useState("")
     const [verified, setVerified] = useState(false)
     const [error, setError] = useState(false)
 
-    const verifyUserEmail = async () => {
+    const verifyUserEmail = useCallback(async () => {
         try {
             await axios.post("/api/users/verifyemail", {token})
             setVerified(true)
-        } catch (error:any) {
+        } catch (error: unknown) {
             setError(true)
-            console.log(error.response.data);
+            console.log(error instanceof Error ? error.message : 'An error occurred');
             
         }
-    }
+    }, [token])
 
     useEffect(() => {
       const urlToken = window.location.search.split("=")[1];
@@ -29,10 +28,10 @@ export default function verifyEmialPage() {
     }, [])
     
     useEffect(() =>{
-        if (token.length> 0) {
+        if (token.length > 0) {
             verifyUserEmail()
         }
-    },[token])
+    }, [token, verifyUserEmail])
 
     return (
       <div className="App">
