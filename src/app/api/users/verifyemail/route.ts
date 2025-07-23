@@ -17,8 +17,6 @@ export async function POST(request: NextRequest){
           verifyTokenExpiry: {$gt: Date.now()}
         });
 
-       
-
         if (!user) {
             return NextResponse.json(
                 {error: "Invalid token"},
@@ -28,7 +26,7 @@ export async function POST(request: NextRequest){
         console.log(user);
 
         user.isVerified = true,
-        user.isVerifiverifyTokened = undefined,
+        user.isVerifiedToken = undefined,
         user.verifyTokenExpiry = undefined,
         await user.save();
 

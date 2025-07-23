@@ -3,11 +3,12 @@
 /*
 Enables the use of client-side features like hooks (useState, useEffect), event handlers, and direct DOM manipulation.
 Allows for optimized loading by sending only necessary client-side JavaScript to the browser, reducing the initial bundle size.
+// It provides access to the router object, allowing for programmatic `navigation` and interaction with the application's routing state.
 */
 import Link from "next/link";
-import { GeistSans } from "geist/font/sans";
+import Starfield from "react-starfield";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation"; // It provides access to the router object, allowing for programmatic `navigation` and interaction with the application's routing state.
+import { useRouter } from "next/navigation"; 
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -60,46 +61,66 @@ export default function LoginPage() {
   },[user])
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1 className="text-3xl">{loading ? "processing" : "Login"}</h1>
-      <hr />
-      <label htmlFor="email"> email:</label>
-      <input
-        className="p-1 bg-white text-gray-900 border-2 rounded-lg mb-4 focus:outline-none focus:border-blue-400"
-        id="email"
-        type="text"
-        value={user.email}
-        onChange={(e) => setUser({ ...user, email: e.target.value })}
-        placeholder="email"
+    <div className="App">
+      <Starfield
+        starCount={1000}
+        starColor={[255, 255, 255]}
+        speedFactor={0.05}
+        backgroundColor="black"
       />
+      <div className="flex flex-col items-center justify-center min-h-screen py-2">
+        <h1 className="text-4xl font-bold uppercase">
+          {loading ? "processing" : "Login"}
+        </h1>
+        <hr />
+        <label htmlFor="email"> email:</label>
+        <input
+          className="p-1 bg-transparent shadow-md  text-gray-400 border rounded-lg mb-4 focus:shadow-gray-400 focus:outline-none  focus:border-gray-400"
+          id="email"
+          type="text"
+          value={user.email}
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
+          placeholder="email"
+        />
 
-      <label htmlFor="password"> password:</label>
-      <input
-        className="p-1 bg-white text-gray-900 border-2  rounded-lg mb-4 focus:outline-none focus:border-blue-400"
-        id="password"
-        type="password"
-        value={user.password}
-        onChange={(e) => setUser({ ...user, password: e.target.value })}
-        placeholder="password"
-      />
-      <button
-        onClick={onLogin}
-        className=" px-5 py-2.5 flex hover:space-x-large  text-center items-center justify-center font-bold uppercase border bg-transparent rounded-lg mb-4 focus:outline-none text-purple-700 hover:text-white border-purple-700 hover:bg-purple-700 hover:shadow-2xl hover:shadow-purple-700 transition-all focus:opacity-[0.85] active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none focus:ring-1 focus:ring-purple-600"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          className="bi bi-arrow-right-square-fill"
-          viewBox="3 0 16 16"
+        <label htmlFor="password"> password:</label>
+        <input
+          className="p-1 bg-transparent shadow-md  text-gray-400 border rounded-lg mb-6 focus:shadow-gray-400 focus:outline-none  focus:border-gray-400"
+          id="password"
+          type="password"
+          value={user.password}
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
+          placeholder="password"
+        />
+        <button
+          onClick={onLogin}
+          className=" px-5 py-2.5 flex hover:space-x-large  text-center items-center justify-center font-bold uppercase border bg-transparent rounded-lg mb-4 focus:outline-none text-purple-700 hover:text-white border-purple-700 hover:bg-purple-700 hover:shadow-2xl hover:shadow-purple-700 transition-all focus:opacity-[0.85] active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none focus:ring-1 focus:ring-purple-600"
         >
-          <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
-        </svg>
-        {buttonDisabled ? "No Login" : "Login"}
-      </button>
-      <Link href="/signup">Visit Signup Page</Link>
-      <Toaster position="top-right" reverseOrder={false} />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-arrow-right-square-fill"
+            viewBox="3 0 16 16"
+          >
+            <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1" />
+          </svg>
+          {buttonDisabled ? "No Login" : "Login"}
+        </button>
+        <div className="flex flex-col justify-items-center">
+          <Link className="text-purple-500 mb-2 hover:underline" href="/signup">
+            Visit Signup Page
+          </Link>
+          <Link
+            href="/forgotpassword"
+            className="text-purple-500 hover:underline"
+          >
+            Forgot Password?
+          </Link>
+        </div>
+        <Toaster position="top-right" reverseOrder={false} />
+      </div>
     </div>
   );
 }

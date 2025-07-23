@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { setServers } from "dns";
+import Starfield from "react-starfield";
 
 export default function verifyEmialPage() {
     const [token, setToken] = useState("")
@@ -34,6 +35,13 @@ export default function verifyEmialPage() {
     },[token])
 
     return (
+      <div className="App">
+      <Starfield
+        starCount={1000}
+        starColor={[255, 255, 255]}
+        speedFactor={0.05}
+        backgroundColor="black"
+      />
       <div className="flex flex-col items-center justify-center min-h-screen py-2">
         <h1 className="text-4xl mb-4">Verify your email</h1>
         <h2 className="p-2  bg-purple-500 hover:bg-purple-600 rounded-lg text-black">
@@ -56,6 +64,8 @@ export default function verifyEmialPage() {
             
           </div>
         )}
+        <Toaster position="top-right" reverseOrder={false} />
+      </div>
       </div>
     );
 }

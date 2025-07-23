@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
-
+import Starfield from "react-starfield";
 
 
 export default function ProfilePage() {
@@ -28,6 +28,13 @@ export default function ProfilePage() {
   }
 
   return (
+    <div className="App">
+      <Starfield
+        starCount={1000}
+        starColor={[255, 255, 255]}
+        speedFactor={0.05}
+        backgroundColor="black"
+      />
     <div className="flex flex-col items-center justify-center py-2 min-h-screen">
       <h1 className=" mb-2">Profile </h1>
       <hr />
@@ -70,6 +77,8 @@ export default function ProfilePage() {
         <span className="font-medium text-[#333] group-hover:text-white" />
         Get User Details
       </button>
+    </div>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 }
