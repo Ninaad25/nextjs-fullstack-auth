@@ -335,7 +335,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Ninaad M**
 - GitHub: [@Ninaad25](https://github.com/Ninaad25)
-- LinkedIn: [Connect with me](https://linkedin.com/in/your-profile)
+- LinkedIn: [Connect with me](https://linkedin.com/in/ninaad390)
 
 ## 🙏 Acknowledgments
 
