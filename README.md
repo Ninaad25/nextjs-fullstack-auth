@@ -2,6 +2,12 @@
 
 This is a fullstack Next.js authentication application with user registration, login, password reset, and email verification features.
 
+## Tech Stack
+- Nextjs
+- Typescript
+- Mongodb
+- Mailtrap
+
 ## Live Demo
 🌐 **Live App**: https://auth-nextjs-ourtube-ninaad-mhadalkars-projects.vercel.app
 
