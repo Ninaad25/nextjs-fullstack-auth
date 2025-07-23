@@ -1,12 +1,12 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import axios from "axios";
 import Link from "next/link";
 import { toast, Toaster } from "react-hot-toast";
 import { useSearchParams } from "next/navigation";
 import Starfield from "react-starfield";
 
-export default function ResetPasswordPage() {
+function ResetPasswordContent() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -199,5 +199,17 @@ export default function ResetPasswordPage() {
       <Toaster position="top-right" reverseOrder={false} />
     </div>
     </div>
+  );
+}
+
+export default function ResetPasswordPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex flex-col items-center justify-center min-h-screen py-2">
+        <h1 className="text-4xl mb-4">Loading...</h1>
+      </div>
+    }>
+      <ResetPasswordContent />
+    </Suspense>
   );
 }
