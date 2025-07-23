@@ -35,36 +35,37 @@ export default function VerifyEmailPage() {
 
     return (
       <div className="App">
-      <Starfield
-        starCount={1000}
-        starColor={[255, 255, 255]}
-        speedFactor={0.05}
-        backgroundColor="black"
-      />
-      <div className="flex flex-col items-center justify-center min-h-screen py-2">
-        <h1 className="text-4xl mb-4">Verify your email</h1>
-        <h2 className="p-2  bg-purple-500 hover:bg-purple-600 rounded-lg text-black">
-          {token ? `${token}` : "No token"}
-        </h2>
+        <Starfield
+          starCount={1000}
+          starColor={[255, 255, 255]}
+          speedFactor={0.05}
+          backgroundColor="black"
+        />
+        <div className="flex flex-col items-center justify-center min-h-screen py-2">
+          <h1 className="text-4xl mb-4 bg-gradient-to-r from-purple-900 to-purple-500 bg-clip-text text-transparent font-bold">
+            Verify your email
+          </h1>
+          <h2 className="p-2  bg-purple-500 hover:bg-purple-600 rounded-lg text-black">
+            {token ? `${token}` : "No token"}
+          </h2>
 
-        {verified && (
-          <div >
-            <h2 className="text-2xl mb-2">Email Verified</h2>
-            <Link 
-            className="mb-2"
-            href="/login">
-              Login
-            </Link>
-          </div>
-        )}
-        {error && (
-          <div>
-            <h2 className="text-2xl rounded-lg bg-red-600 text-black">Error!!</h2>
-            
-          </div>
-        )}
-        <Toaster position="top-right" reverseOrder={false} />
-      </div>
+          {verified && (
+            <div>
+              <h2 className="text-2xl mb-2">Email Verified</h2>
+              <Link className="mb-2" href="/login">
+                Login
+              </Link>
+            </div>
+          )}
+          {error && (
+            <div>
+              <h2 className="text-2xl rounded-lg bg-red-600 text-black">
+                Error!!
+              </h2>
+            </div>
+          )}
+          <Toaster position="top-right" reverseOrder={false} />
+        </div>
       </div>
     );
 }

@@ -148,56 +148,60 @@ function ResetPasswordContent() {
         speedFactor={0.05}
         backgroundColor="black"
       />
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1 className="text-4xl mb-4">Reset Password</h1>
+      <div className="flex flex-col items-center justify-center min-h-screen py-2">
+        <h1 className="text-4xl mb-4 bg-gradient-to-r from-purple-900 to-purple-500 bg-clip-text text-transparent font-bold">
+          Reset Password
+        </h1>
 
-      {!passwordReset ? (
-        <>
-          <label htmlFor="password">New Password</label>
-          <input
-            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-400 text-gray-400"
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter new password"
-          />
+        {!passwordReset ? (
+          <>
+            <label htmlFor="password">New Password</label>
+            <input
+              className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-400 text-gray-400"
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter new password"
+            />
 
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-400 text-gray-400"
-            id="confirmPassword"
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            placeholder="Confirm new password"
-          />
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+              className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-400 text-gray-400"
+              id="confirmPassword"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Confirm new password"
+            />
 
-          <button
-            onClick={onSubmit}
-            disabled={loading}
-            className="p-2 border m-3 border-purple-600 rounded-lg mb-4 focus:outline-none bg-transparent hover:bg-purple-800 focus:border-purple-600"
-          >
-            {loading ? "Resetting..." : "Reset Password"}
-          </button>
+            <button
+              onClick={onSubmit}
+              disabled={loading}
+              className="p-2 border m-3 border-purple-600 rounded-lg mb-4 focus:outline-none bg-transparent hover:bg-purple-800 focus:border-purple-600"
+            >
+              {loading ? "Resetting..." : "Reset Password"}
+            </button>
 
-          <Link href="/login" className="text-purple-500 hover:underline">
-            Back to Login
-          </Link>
-        </>
-      ) : (
-        <div className="text-center">
-          <h2 className="text-2xl mb-4 border border-green-500 text-green-500">
-            Password Reset Successfully!
-          </h2>
-          <p className="mb-4 text-lg font-bold">You can now log in with your new password.</p>
-          <Link href="/login" className="text-purple-500 hover:underline">
-            Go to Login
-          </Link>
-        </div>
-      )}
-      <Toaster position="top-right" reverseOrder={false} />
-    </div>
+            <Link href="/login" className="text-purple-500 hover:underline">
+              Back to Login
+            </Link>
+          </>
+        ) : (
+          <div className="text-center">
+            <h2 className="text-2xl mb-4 border border-green-500 text-green-500">
+              Password Reset Successfully!
+            </h2>
+            <p className="mb-4 text-lg font-bold">
+              You can now log in with your new password.
+            </p>
+            <Link href="/login" className="text-purple-500 hover:underline">
+              Go to Login
+            </Link>
+          </div>
+        )}
+        <Toaster position="top-right" reverseOrder={false} />
+      </div>
     </div>
   );
 }

@@ -69,7 +69,7 @@ export default function LoginPage() {
         backgroundColor="black"
       />
       <div className="flex flex-col items-center justify-center min-h-screen py-2">
-        <h1 className="text-4xl font-bold uppercase">
+        <h1 className="text-4xl font-bold uppercase bg-gradient-to-r from-purple-900 to-purple-500 bg-clip-text text-transparent">
           {loading ? "processing" : "Login"}
         </h1>
         <hr />

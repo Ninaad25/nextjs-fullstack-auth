@@ -66,7 +66,7 @@ export default function SignupPage(){
           backgroundColor="black"
         />
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
-          <h1 className="text-3xl mb-4 font-bold uppercase">
+          <h1 className="text-3xl mb-4 font-bold uppercase bg-gradient-to-r from-purple-900 to-purple-500 bg-clip-text text-transparent">
             {loading ? "processing" : "Signup"}
           </h1>
           <hr />
